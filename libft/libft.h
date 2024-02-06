@@ -27,19 +27,19 @@
 
 typedef struct s_list
 {
-	int             value;
+	int				value;
 	struct s_list	*next;
 }					t_list;
-long		ft_atoi(const char *str);
-int		ft_isdigit(int c);
-size_t	ft_strlen(const char *s);
-char	**ft_split(char const *s, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
-t_list	*ft_lstnew(int content);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstlast(t_list *lst);
-char	*ft_strdup(const char *s);
-void	ft_lstdelone(t_list *lst);
-void	ft_lstclear(t_list **lst);
+long				ft_atoi(const char *str);
+int					ft_isdigit(int c);
+size_t				ft_strlen(const char *s);
+char				**ft_split(char const *s, char c);
+char				*ft_strjoin(char const *s1, char const *s2);
+t_list				*ft_lstnew(int content);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+t_list				*ft_lstlast(t_list *lst);
+char				*ft_strdup(const char *s);
+void				ft_lstdelone(t_list *lst);
+void				ft_lstclear(t_list **lst);
 
 #endif

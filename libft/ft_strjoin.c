@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:01:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/03 22:37:00 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/06 09:42:51 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_strcpy(char *d, const char *s)
 		i++;
 	}
 	d[i] = ' ';
-	d[i+1] = '\0';
+	d[i + 1] = '\0';
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

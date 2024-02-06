@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:57:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/05 08:56:01 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/06 09:42:21 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_lstdelone(t_list *lst)
 {
 	if (!lst)
 		return ;
-	// del(&lst->value);
 	free(lst);
 	lst = NULL;
 }
