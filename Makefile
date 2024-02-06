@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 00:12:14 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/06 01:11:05 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/06 22:11:59 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT = ./libft/libft.a
 FT_PRINTF = ./ft_printf/libftprintf.a
 RM = rm -rf
 
-PUSH_SRC = push_swap.c
+PUSH_SRC = push_swap.c add_to_list.c check_arg.c free_all.c
 
 all: $(NAME)
 

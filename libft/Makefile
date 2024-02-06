@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 10:31:55 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/06 00:29:43 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/06 21:22:34 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC= ft_atoi.c\
 	 ft_strdup.c\
 	 ft_lstdelone_bonus.c\
 	 ft_lstclear_bonus.c\
- 
+	 ft_lstsize_bonus.c\
+
 OBJ= $(SRC:.c=.o)
 CC= cc
 CFLAGS= -Wall -Wextra  -Werror 
