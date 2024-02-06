@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:48:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/06 22:33:17 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:25:53 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int		ft_check(char *s);
 int		ft_check_arg(char *s);
 int		ft_check_sort(t_list **stack_a);
 int		ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a);
+void ft_swap_a(t_list **stack_a);
 #endif
