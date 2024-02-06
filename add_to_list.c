@@ -12,10 +12,11 @@
 
 #include "push_swap.h"
 
-int	ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node, t_list **stack_a)
+int	ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node,
+		t_list **stack_a)
 {
-	int		i;
 	long	tmp_num2;
+	int		i;
 
 	i = 0;
 	while (num_split[i])
@@ -37,6 +38,6 @@ int	ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node, t_list **
 	if (ft_check_sort(stack_a) == 0)
 		return (ft_printf("[YOUR NUMBERS ARE PRE-SORTED]\n"));
 	else if (ft_check_sort(stack_a) == 2)
-		return (ft_printf("[YOU NEED MORE ARGUMENT]\n"));	
+		return (ft_printf("[YOU NEED MORE ARGUMENT]\n"));
 	return (0);
 }

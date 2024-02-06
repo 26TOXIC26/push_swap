@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int ft_check_space(char *s)
+int	ft_check_space(char *s)
 {
 	int	i;
 
@@ -39,6 +39,7 @@ int	ft_check_num(t_list **lst, int num)
 	}
 	return (1);
 }
+
 int	ft_check(char *s)
 {
 	int	i;
@@ -53,12 +54,12 @@ int	ft_check(char *s)
 	}
 	return (1);
 }
+
 int	ft_check_arg(char *s)
 {
 	int	i;
 
 	i = 0;
-	
 	if (ft_check_space(s) == 0)
 		return (0);
 	while (s[i])
@@ -71,6 +72,7 @@ int	ft_check_arg(char *s)
 		return (0);
 	return (1);
 }
+
 int	ft_check_sort(t_list **stack_a)
 {
 	t_list	*tmp1;
@@ -78,10 +80,8 @@ int	ft_check_sort(t_list **stack_a)
 
 	tmp1 = *stack_a;
 	tmp2 = tmp1->next;
-
 	if (ft_lstsize(*stack_a) < 2)
 		return (2);
-	
 	while (tmp1 && tmp2)
 	{
 		while (tmp2)
