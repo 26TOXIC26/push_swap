@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:25:47 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/06 21:20:42 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/07 08:22:59 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ char				*ft_strdup(const char *s);
 void				ft_lstdelone(t_list *lst);
 void				ft_lstclear(t_list **lst);
 int					ft_lstsize(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
