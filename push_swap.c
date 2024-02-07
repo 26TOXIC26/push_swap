@@ -6,12 +6,30 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/07 09:15:38 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:26:54 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void ft_print_list(t_list *stack_a)
+{
+	while (stack_a)
+	{
+		ft_printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+	}
+}
+void ft_sort_3(t_list **stack_a)
+{
+	t_list *head = *stack_a;
+	t_list *n1 = (*stack_a)->next;
+	t_list *n2 = (*stack_a)->next->next;
+	if (((head->value) > (n1->value)) && (head->value) > (n2->value))
+		ft_rotate(stack_a, 'a');
+	if (((head->value) > (n1->value)) && ((head->value) < (n2->value)))
+		ft_swap(stack_a, 'a');
+}
 int	main(int argc, char **argv)
 {
 	int			i;
@@ -35,14 +53,7 @@ int	main(int argc, char **argv)
 	num_split = ft_split(numbers, ' ');
 	if (ft_split_to_node(num_split, 0, NULL, &stack_a) > 0)
 		return (ft_free_all_ta3_all(numbers, num_split, &stack_a));
-	// if((stack_a->value) > (stack_a->next->value) && (stack_a->value) > (stack_a->next->next->value))
-	// 	ft_retate(&stack_a, 'a');
-	// if((stack_a->value) > (stack_a->next->value) && (stack_a->value) < (stack_a->next->next->value))
-	// 	ft_swap(&stack_a, 'a');
-	// while (stack_a)
-	// {
-	// 	ft_printf("%d\n", stack_a->value);
-	// 	stack_a = stack_a->next;
-	// }	
+	ft_sort_3(&stack_a);
+	ft_print_list(stack_a);
 	ft_free_all_ta3_all(numbers, num_split, &stack_a);
 }

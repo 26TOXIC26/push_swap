@@ -6,13 +6,13 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:41:36 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/07 08:38:20 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:56:36 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_retate(t_list **stack, char type)
+void	ft_rotate(t_list **stack, char type)
 {
 	t_list	*tmp;
 
@@ -28,8 +28,8 @@ void	ft_retate(t_list **stack, char type)
 
 void	ft_rotate_all(t_list **stack_a, t_list **stack_b)
 {
-	ft_retate(stack_a, 'y');
-	ft_retate(stack_b, 'z');
+	ft_rotate(stack_a, 'y');
+	ft_rotate(stack_b, 'z');
 	ft_printf("rr\n");
 }
 
