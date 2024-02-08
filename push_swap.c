@@ -6,13 +6,13 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/07 23:26:54 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/08 06:57:08 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_print_list(t_list *stack_a)
+void	ft_print_list(t_list *stack_a)
 {
 	while (stack_a)
 	{
@@ -20,16 +20,45 @@ void ft_print_list(t_list *stack_a)
 		stack_a = stack_a->next;
 	}
 }
-void ft_sort_3(t_list **stack_a)
+
+void	ft_rev_swap(t_list **stack_a, char type)
 {
-	t_list *head = *stack_a;
-	t_list *n1 = (*stack_a)->next;
-	t_list *n2 = (*stack_a)->next->next;
-	if (((head->value) > (n1->value)) && (head->value) > (n2->value))
-		ft_rotate(stack_a, 'a');
-	if (((head->value) > (n1->value)) && ((head->value) < (n2->value)))
-		ft_swap(stack_a, 'a');
+	ft_rev_rotate(stack_a, type);
+	ft_swap(stack_a, type);
 }
+
+void	ft_rot_swap(t_list **stack_a, char type)
+{
+	ft_rotate(stack_a, type);
+	ft_swap(stack_a, type);
+}
+
+void	ft_sort_3(t_list **stack_a)
+{
+	t_list	*head;
+	t_list	*n1;
+	t_list	*n2;
+
+	head = (*stack_a);
+	n1 = (*stack_a)->next;
+	n2 = (*stack_a)->next->next;
+	if ((head->value) > (n1->value) && (n1->value)
+		< (n2->value) && (head->value) > (n2->value))
+		ft_rotate(stack_a, 'a');
+	else if ((head->value) > (n1->value) && (n1->value)
+		< (n2->value) && (head->value) < (n2->value))
+		ft_swap(stack_a, 'a');
+	else if ((head->value) < (n1->value) && (n1->value)
+		> (n2->value) && (head->value) > (n2->value))
+		ft_rev_rotate(stack_a, 'a');
+	else if ((head->value) < (n1->value) && (n1->value)
+		> (n2->value) && (head->value) < (n2->value))
+		ft_rev_swap(stack_a, 'a');
+	else if ((head->value) > (n1->value) && (n1->value)
+		> (n2->value) && (head->value) > (n2->value))
+		ft_rot_swap(stack_a, 'a');
+}
+
 int	main(int argc, char **argv)
 {
 	int			i;
