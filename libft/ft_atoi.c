@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:58:18 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/05 08:07:28 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/09 00:49:39 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ long	ft_atoi(const char *str)
 	{
 		result = result * 10 + (str[i++] - '0');
 		if (result > 9223372036854775807 && sign == -1)
-			return (0);
+			return (9223372036854775807);
 		else if (result > 9223372036854775807 && sign == 1)
-			return (-1);
+			return (-9223372036854775807);
 	}
 	return (sign * result);
 }

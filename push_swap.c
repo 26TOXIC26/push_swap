@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/08 06:57:08 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/09 00:15:36 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,14 @@ int	main(int argc, char **argv)
 		free(tmp);
 	}
 	if (ft_check_arg(numbers) == 0)
+	{
+		free(numbers);
 		return (ft_printf("[ERROR IN ARGUMENT]\n"));
+	}
 	num_split = ft_split(numbers, ' ');
 	if (ft_split_to_node(num_split, 0, NULL, &stack_a) > 0)
 		return (ft_free_all_ta3_all(numbers, num_split, &stack_a));
-	ft_sort_3(&stack_a);
+	// ft_sort_3(&stack_a);
 	ft_print_list(stack_a);
 	ft_free_all_ta3_all(numbers, num_split, &stack_a);
 }
