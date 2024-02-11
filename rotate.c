@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:41:36 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/07 22:56:36 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/10 23:49:29 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,44 +21,44 @@ void	ft_rotate(t_list **stack, char type)
 	tmp->next = NULL;
 	ft_lstadd_back(stack, tmp);
 	if (type == 'a')
-		ft_printf("ra\n");
+		write(1, "ra\n", 3);
 	else if (type == 'b')
-		ft_printf("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	ft_rotate_all(t_list **stack_a, t_list **stack_b)
 {
 	ft_rotate(stack_a, 'y');
 	ft_rotate(stack_b, 'z');
-	ft_printf("rr\n");
+	write(1, "rr\n", 3);
 }
 
-void    ft_rev_rotate(t_list **stack, char type)
+void	ft_rev_rotate(t_list **stack, char type)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
 
-    tmp = ft_lstlast(*stack);
-    tmp2 = *stack;
-    while (tmp2)
+	tmp = ft_lstlast(*stack);
+	tmp2 = *stack;
+	while (tmp2)
 	{
 		if (tmp2->next->next == NULL)
 		{
-			 tmp2->next = NULL;
-			 break ;
+			tmp2->next = NULL;
+			break ;
 		}
 		tmp2 = tmp2->next;
 	}
-    ft_lstadd_front(stack, tmp);
-    if (type == 'a')
-		ft_printf("rra\n");
+	ft_lstadd_front(stack, tmp);
+	if (type == 'a')
+		write(1, "rra\n", 3);
 	else if (type == 'b')
-		ft_printf("rrb\n");
+		write(1, "rrb\n", 3);
 }
 
-void    ft_rev_rotate_all(t_list **stack_a, t_list **stack_b)
+void	ft_rev_rotate_all(t_list **stack_a, t_list **stack_b)
 {
 	ft_rev_rotate(stack_a, 'y');
-    ft_rev_rotate(stack_b, 'z');
-    ft_printf("rrr\n");
+	ft_rev_rotate(stack_b, 'z');
+	write(1, "rrr\n", 3);
 }

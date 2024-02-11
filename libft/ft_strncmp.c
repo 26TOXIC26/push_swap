@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 23:24:07 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/10 23:50:06 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/09 23:52:27 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/22 08:52:47 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_swap(t_list **stack, char type_stack)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_list	*tmp;
+	size_t	i;
 
-	tmp = (*stack)->next;
-	(*stack)->next = (*stack)->next->next;
-	tmp->next = *stack;
-	*stack = tmp;
-	if (type_stack == 'a')
-		write(1, "sa\n", 3);
-	else if (type_stack == 'b')
-		write(1, "sb\n", 3);
-}
-
-void	ft_swap_all(t_list **stack_a, t_list **stack_b)
-{
-	ft_swap(stack_a, 'y');
-	ft_swap(stack_b, 'z');
-	write(1, "ss\n", 3);
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < (n - 1) && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

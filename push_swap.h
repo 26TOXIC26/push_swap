@@ -26,11 +26,11 @@ int		ft_check_arg(char *s);
 int		ft_check_sort(t_list **stack_a);
 int		ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a);
 // sorting functions
-void ft_swap(t_list **stack, char type_stack);
-void ft_push(t_list **stack_from, t_list **stack_to, char type_from);
+void	ft_swap(t_list **stack, char type_stack);
+void	ft_push(t_list **stack_from, t_list **stack_to, char type_from);
 void	ft_swap_all(t_list **stack_a, t_list **stack_b);
-void ft_rotate(t_list **stack, char type);
+void	ft_rotate(t_list **stack, char type);
 void	ft_rotate_all(t_list **stack_a, t_list **stack_b);
-void    ft_rev_rotate(t_list **stack, char type);
+void	ft_rev_rotate(t_list **stack, char type);
 
 #endif

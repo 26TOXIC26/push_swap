@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:19:00 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/07 07:39:14 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/10 23:48:12 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_push(t_list **stack_from, t_list **stack_to, char type_from)
 	*stack_to = tmp1;
 	(*stack_to)->next = tmp2;
 	if (type_from == 'b')
-		ft_printf("pa\n");
+		write(1, "pa\n", 3);
 	else if (type_from == 'a')
-		ft_printf("pb\n");
+		write(1, "pb\n", 3);
 }

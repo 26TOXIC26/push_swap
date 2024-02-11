@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mousaid <mousaid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:34:52 by amousaid          #+#    #+#             */
-/*   Updated: 2023/12/01 00:27:57 by mousaid          ###   ########.fr       */
+/*   Updated: 2024/02/10 23:43:12 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putchar_l(char c, int *sum)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 	(*sum)++;
 }
