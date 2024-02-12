@@ -6,20 +6,20 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/11 00:07:56 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:37:43 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_list(t_list *stack_a)
-{
-	while (stack_a)
-	{
-		ft_printf("%d\n", stack_a->value);
-		stack_a = stack_a->next;
-	}
-}
+// void	ft_print_list(t_list *stack_a)
+// {
+// 	while (stack_a)
+// 	{
+// 		ft_printf("%d\n", stack_a->value);
+// 		stack_a = stack_a->next;
+// 	}
+// }
 
 int	find_highest(t_list *stack)
 {
@@ -33,6 +33,32 @@ int	find_highest(t_list *stack)
 		stack = stack->next;
 	}
 	return (highest);
+}
+int find_smallest(t_list *stack)
+{
+	int smallest;
+
+	smallest = stack->value;
+	while(stack)
+	{
+		if (smallest > stack->value)
+			smallest = stack->value;
+		stack = stack->next;
+	}
+	return (smallest);
+}
+
+int find_position(t_list *stack, int smallest)
+{
+	int position;
+
+	position = 0;
+	while(smallest != stack->value)
+	{
+		position++;
+		stack = stack->next;
+	}
+	return (position);
 }
 
 void	ft_sort_3(t_list **stack_a)
@@ -50,14 +76,26 @@ void	ft_sort_3(t_list **stack_a)
 
 void	ft_sort_5(t_list **stack_a, t_list **stack_b)
 {
-	ft_push(stack_a, stack_b, 'a');
-	ft_push(stack_a, stack_b, 'a');
+	int smallest;
+	int position;
+
+	smallest = find_smallest(*stack_a);
+	while(ft_lstsize(*stack_a) > 3)
+	{
+		if(smallest == (*stack_a)->value)
+		{
+			ft_push(stack_a, stack_b, 'a');
+			smallest = find_smallest(*stack_a);
+		}
+		position = find_position(*stack_a, smallest);
+		if(position > (ft_lstsize(*stack_a) / 2))
+			ft_rev_rotate(stack_a, 'a');
+		else
+			ft_rotate(stack_a, 'a');
+	}
 	ft_sort_3(stack_a);
-	if ((*stack_b)->value < (*stack_b)->next->value)
-		ft_swap(stack_b, 'b');
-	ft_push(stack_b, stack_a, 'b');
-	ft_rotate(stack_a, 'a');
-	ft_push(stack_b, stack_a, 'b');
+	while(ft_lstsize(*stack_b) > 0)
+		ft_push(stack_b, stack_a, 'b');
 }
 
 int	ft_check_null(int argc, char **argv)
@@ -82,10 +120,10 @@ int	main(int argc, char **argv)
 	t_list		*stack_b;
 	char		*tmp;
 
-	if (argc < 2)
-		return (ft_printf("Error\n"));
+	if (argc < 3)
+		return (0);
 	if (ft_check_null(argc, argv) == 0)
-		return (ft_printf("Error\n"));
+		return (0);
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
@@ -106,14 +144,15 @@ int	main(int argc, char **argv)
 		if (ft_lstsize(stack_a) == 2)
 		{
 			ft_swap(&stack_a, 'a');
-			ft_print_list(stack_a);
-			return (0);
+			// ft_print_list(stack_a);
+			// return (0);
 		}
 		else if (ft_lstsize(stack_a) == 3)
 			ft_sort_3(&stack_a);
 		else
 			ft_sort_5(&stack_a, &stack_b);
-		ft_print_list(stack_a);
+		// ft_print_list(stack_a);
 	}
-	ft_free_all_ta3_all(numbers, num_split, &stack_a);
+	ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:47:33 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/06 21:50:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:28:46 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,27 +71,4 @@ int	ft_check_arg(char *s)
 	if (ft_check(s) == 0)
 		return (0);
 	return (1);
-}
-
-int	ft_check_sort(t_list **stack_a)
-{
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = *stack_a;
-	tmp2 = tmp1->next;
-	if (ft_lstsize(*stack_a) < 2)
-		return (2);
-	while (tmp1 && tmp2)
-	{
-		while (tmp2)
-		{
-			if (tmp1->value > tmp2->value)
-				return (1);
-			tmp2 = tmp2->next;
-		}
-		tmp1 = tmp1->next;
-		tmp2 = tmp1->next;
-	}
-	return (0);
 }

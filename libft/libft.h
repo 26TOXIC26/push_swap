@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:25:47 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/10 23:26:54 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 09:08:59 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 typedef struct s_list
 {
 	int				value;
+	int target;
+	int position;
 	struct s_list	*next;
 }					t_list;
 long				ft_atoi(const char *str);

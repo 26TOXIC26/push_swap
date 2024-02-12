@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:48:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/07 22:56:16 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:28:55 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int		ft_check_space(char *s);
 int		ft_check_num(t_list **lst, int num);
 int		ft_check(char *s);
 int		ft_check_arg(char *s);
-int		ft_check_sort(t_list **stack_a);
-int		ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a);
+int		ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a, t_list **stack_b);
 // sorting functions
 void	ft_swap(t_list **stack, char type_stack);
 void	ft_push(t_list **stack_from, t_list **stack_to, char type_from);

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:41:36 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/10 23:49:29 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:27:20 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void	ft_rev_rotate(t_list **stack, char type)
 	}
 	ft_lstadd_front(stack, tmp);
 	if (type == 'a')
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 	else if (type == 'b')
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	ft_rev_rotate_all(t_list **stack_a, t_list **stack_b)
 {
 	ft_rev_rotate(stack_a, 'y');
 	ft_rev_rotate(stack_b, 'z');
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }
