@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 23:24:07 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/12 09:15:28 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:22:08 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_swap(t_list **stack, char type_stack)
 {
 	t_list	*tmp;
 
+	if ((ft_lstsize(*stack)) < 2)
+		return ;
 	tmp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
 	tmp->next = *stack;

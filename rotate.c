@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:41:36 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/11 23:27:20 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:21:55 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_rotate(t_list **stack, char type)
 {
 	t_list	*tmp;
 
+	if ((ft_lstsize(*stack)) < 2)
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tmp->next = NULL;
@@ -38,6 +40,8 @@ void	ft_rev_rotate(t_list **stack, char type)
 	t_list	*tmp;
 	t_list	*tmp2;
 
+	if ((ft_lstsize(*stack)) < 2)
+		return ;
 	tmp = ft_lstlast(*stack);
 	tmp2 = *stack;
 	while (tmp2)

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/12 11:37:43 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:23:43 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,15 +142,11 @@ int	main(int argc, char **argv)
 	if (ft_split_to_node(num_split, 0, NULL, &stack_a) == 0)
 	{
 		if (ft_lstsize(stack_a) == 2)
-		{
 			ft_swap(&stack_a, 'a');
-			// ft_print_list(stack_a);
-			// return (0);
-		}
 		else if (ft_lstsize(stack_a) == 3)
 			ft_sort_3(&stack_a);
-		else
-			ft_sort_5(&stack_a, &stack_b);
+		else if (ft_lstsize(stack_a) <= 5)
+			ft_sort_5(&stack_a, &stack_b);		
 		// ft_print_list(stack_a);
 	}
 	ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
