@@ -6,20 +6,20 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/12 23:23:43 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:52:59 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	ft_print_list(t_list *stack_a)
-// {
-// 	while (stack_a)
-// 	{
-// 		ft_printf("%d\n", stack_a->value);
-// 		stack_a = stack_a->next;
-// 	}
-// }
+void	ft_print_list(t_list *stack_a)
+{
+	while (stack_a)
+	{
+		ft_printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+	}
+}
 
 int	find_highest(t_list *stack)
 {
@@ -97,6 +97,81 @@ void	ft_sort_5(t_list **stack_a, t_list **stack_b)
 	while(ft_lstsize(*stack_b) > 0)
 		ft_push(stack_b, stack_a, 'b');
 }
+int *ft_fill_aray(t_list *stack)
+{
+	int *array;
+	int i;
+
+	i = 0;
+	array = malloc(ft_lstsize(stack) * sizeof(int));
+	if (!array)
+		return (NULL);
+	while(stack)
+	{
+		array[i] = stack->value;
+		stack = stack->next;
+		i++;
+	}
+	return (array);
+}
+int ft_check_array(int *array, int size_arr)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = i + 1;
+	while ((i + 1) < size_arr)
+	{
+		while (j < size_arr)
+		{
+			if (array[i] > array[j])
+				return (0);
+			j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return (1);
+}
+void ft_sort_array(int *array, int size_arr)
+{
+	int i;
+	int j;
+	int temp;
+
+	i = 0;
+	j = i + 1;
+	while (ft_check_array(array, size_arr) == 0)
+	{
+		while (j < size_arr)
+		{
+			if (array[i] > array[j])
+			{
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+			i++;
+			j++;
+		}
+		i = 0;
+		j = i + 1;
+	}
+	
+}
+void ft_sort(t_list **stack_a, t_list **stack_b)
+{
+	int *array;
+	int i;
+
+	i = 0;
+	array = ft_fill_aray(*stack_a);
+	ft_sort_array(array, ft_lstsize(*stack_a));
+	
+	
+	stack_b = NULL;
+}
 
 int	ft_check_null(int argc, char **argv)
 {
@@ -145,8 +220,10 @@ int	main(int argc, char **argv)
 			ft_swap(&stack_a, 'a');
 		else if (ft_lstsize(stack_a) == 3)
 			ft_sort_3(&stack_a);
-		else if (ft_lstsize(stack_a) <= 5)
-			ft_sort_5(&stack_a, &stack_b);		
+		else if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
+			ft_sort_5(&stack_a, &stack_b);
+		else
+			ft_sort(&stack_a, &stack_b);
 		// ft_print_list(stack_a);
 	}
 	ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
