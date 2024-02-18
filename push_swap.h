@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:48:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/12 11:28:55 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/18 14:50:01 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ void	ft_swap_all(t_list **stack_a, t_list **stack_b);
 void	ft_rotate(t_list **stack, char type);
 void	ft_rotate_all(t_list **stack_a, t_list **stack_b);
 void	ft_rev_rotate(t_list **stack, char type);
+void	ft_sort_3(t_list **stack_a);
+void	ft_sort_5(t_list **stack_a, t_list **stack_b);
+int		find_position(t_list *stack, int value);
+int	find_highest(t_list *stack);
 
 #endif

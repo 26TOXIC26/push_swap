@@ -6,13 +6,13 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 00:12:14 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/08 23:58:47 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/18 16:02:36 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS =  #-fsanitize=address -g3
 LIBFT = ./libft/libft.a
 FT_PRINTF = ./ft_printf/libftprintf.a
 RM = rm -rf
@@ -24,6 +24,8 @@ PUSH_SRC = push_swap.c\
 			swap.c\
 			push.c\
 			rotate.c\
+			sort_3_5.c\
+			
 
 all: $(NAME)
 
