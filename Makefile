@@ -6,13 +6,13 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 00:12:14 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/18 16:02:36 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/18 17:03:49 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS =  #-fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 LIBFT = ./libft/libft.a
 FT_PRINTF = ./ft_printf/libftprintf.a
 RM = rm -rf
