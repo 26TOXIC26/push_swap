@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 00:12:14 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/18 17:03:49 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/19 15:39:12 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ PUSH_SRC = push_swap.c\
 			push.c\
 			rotate.c\
 			sort_3_5.c\
+			array.c\
+			check_spaces.c\
 			
 
 all: $(NAME)
@@ -37,25 +39,19 @@ $(FT_PRINTF):
 		
 $(NAME): $(LIBFT) $(FT_PRINTF) $(PUSH_SRC) 
 	$(CC) $(CFLAGS) $(PUSH_SRC) $(LIBFT) $(FT_PRINTF) -o push_swap
-	@echo "-----------[DONE]----------|"
-	@echo "[LIBFT] is ready           |"
-	@echo "[FT_PRINTF] is ready       |"
-	@echo "[PUSH_SWAP] is ready       |"
-	@echo "-----------[DONE]----------|"
+	@echo "  [IS MAKE!!]"
 
 clean:
 	$(MAKE) clean --no-print-directory -C ./libft
 	$(MAKE) clean --no-print-directory -C ./ft_printf
-	@echo "-----------[DONE]----------|"
-	@echo "[LIBFT OBJ] is clean.	   |"
-	@echo "[FT_PRINTF OBJ] is clean.  |"
-	@echo "---------------------------|"
+	@echo "  [IS CLEAN!]"
+
 fclean: clean
 	$(MAKE) fclean --no-print-directory -C ./libft
 	$(MAKE) fclean --no-print-directory -C ./ft_printf
 	$(RM) $(NAME)
-	@echo "[PUSH_SWAP] is clean.      |"
-	@echo "---------------------------|"
+	@echo "[IS FULL CLEAN]"
+
 re: fclean all
 
 .SILENT:

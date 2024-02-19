@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:48:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/18 14:50:01 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:28:27 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int		ft_check_num(t_list **lst, int num);
 int		ft_check(char *s);
 int		ft_check_arg(char *s);
 int		ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a, t_list **stack_b);
+int	ft_check_null(int argc, char **argv);
+int ft_check_spaces(char *argv);
+int ft_check_full_space(int argc, char **argv);
 // sorting functions
 void	ft_swap(t_list **stack, char type_stack);
 void	ft_push(t_list **stack_from, t_list **stack_to, char type_from);
@@ -35,5 +38,10 @@ void	ft_sort_3(t_list **stack_a);
 void	ft_sort_5(t_list **stack_a, t_list **stack_b);
 int		find_position(t_list *stack, int value);
 int	find_highest(t_list *stack);
+// array
+int *ft_fill_aray(t_list *stack);
+int ft_check_array(int *array, int size_arr);
+void ft_sort_array(int *array, int size_arr);
+
 
 #endif
