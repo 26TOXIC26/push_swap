@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:26:30 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/18 16:44:56 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:41:01 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,5 @@ void	ft_sort_5(t_list **stack_a, t_list **stack_b)
 	}
 	ft_sort_3(stack_a);
 	while(ft_lstsize(*stack_b) > 0)
-		ft_push(stack_b	if (type_from == 'b')
-		write(1, "pa\n", 3);
-	else if (type_from == 'a')
-		write(1, "pb\n", 3);, stack_a, 'b');
+		ft_push(stack_b, stack_a, 'b');
 }

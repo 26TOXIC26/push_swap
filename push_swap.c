@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/18 16:44:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:15:52 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,21 +106,18 @@ void ft_check_chunk(t_list **stack_a, t_list **stack_b, int *array)
 	int highest;
 	int position;
 	
-	border = (ft_lstsize(*stack_a) / 5) - 1;
+	border = (ft_lstsize(*stack_a) / 9) - 1;
 	while(ft_lstsize(*stack_a) > 0)
 	{
-		// ft_printf("ana hna");
 		if(ft_find_in_array((*stack_a)->value, array, border) == 1)
 		{
 			ft_push(stack_a, stack_b, 'a');			
 			if (ft_lstsize(*stack_b) >= (border + 1))
-				border = border + ((ft_lstsize(*stack_a) + ft_lstsize(*stack_b)) / 5);
+				border = border + ((ft_lstsize(*stack_a) + ft_lstsize(*stack_b)) / 9);
 		}
 		else
-			ft_rev_rotate(stack_a, 'a');
+			ft_rotate(stack_a, 'a');
 	}
-
-	// printf("ana hna\n");
 	highest = find_highest(*stack_b);
 	while(ft_lstsize(*stack_b) > 1)
 	{
@@ -130,10 +127,10 @@ void ft_check_chunk(t_list **stack_a, t_list **stack_b, int *array)
 			highest = find_highest(*stack_b);
 		}
 		position = find_position(*stack_b, highest);
-		if(position > (ft_lstsize(*stack_b) / 2))
-			ft_rev_rotate(stack_b, 'b');
-		else
+		if(position <= (ft_lstsize(*stack_b) / 2) && highest != (*stack_b)->value)
 			ft_rotate(stack_b, 'b');
+		else if (position > (ft_lstsize(*stack_b) / 2) && highest != (*stack_b)->value)
+			ft_rev_rotate(stack_b, 'b');
 	}
 	ft_push(stack_b, stack_a, 'b');
 	// ft_print_list(*stack_a);
@@ -142,9 +139,7 @@ void ft_check_chunk(t_list **stack_a, t_list **stack_b, int *array)
 void ft_sort(t_list **stack_a, t_list **stack_b)
 {
 	int *array;
-	int i;
 
-	i = 0;
 	array = ft_fill_aray(*stack_a);
 	ft_sort_array(array, ft_lstsize(*stack_a));
 	ft_check_chunk(stack_a, stack_b, array);
@@ -201,8 +196,6 @@ void ft_call_sort(t_list **stack_a, t_list **stack_b)
 			ft_sort_5(stack_a, stack_b);
 		else
 			ft_sort(stack_a, stack_b);
-		
-
 }
 
 int	main(int argc, char **argv)
@@ -237,5 +230,6 @@ int	main(int argc, char **argv)
 	num_split = ft_split(numbers, ' ');
 	if (ft_split_to_node(num_split, 0, NULL, &stack_a) == 0)
 		ft_call_sort(&stack_a, &stack_b);
+	ft_print_list(stack_a);
 	ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
 }
