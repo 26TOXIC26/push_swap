@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/19 15:33:43 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:09:09 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ft_sort_chunk(t_list **stack_a, t_list **stack_b, int *array)
 	int highest;
 	int position;
 	
-	border = (ft_lstsize(*stack_a) / 9) - 1;
+	border = (ft_lstsize(*stack_a) / 10) - 1;
 	while(ft_lstsize(*stack_a) > 0)
 	{
 		if(ft_find_in_array((*stack_a)->value, array, border) == 1)
@@ -97,7 +97,7 @@ void ft_sort_chunk(t_list **stack_a, t_list **stack_b, int *array)
 void ft_sort(t_list **stack_a, t_list **stack_b)
 {
 	int *array;
-
+	
 	array = ft_fill_aray(*stack_a);
 	ft_sort_array(array, ft_lstsize(*stack_a));
 	ft_sort_chunk(stack_a, stack_b, array);
