@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:21:40 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/19 21:06:16 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:00:21 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ft_check_array(int *array, int size_arr)
 	{
 		while (j < size_arr)
 		{
-			if (array[i] < array[j])
+			if (array[i] > array[j])
 				return (0);
 			j++;
 		}
@@ -61,7 +61,7 @@ void ft_sort_array(int *array, int size_arr)
 	{
 		while (j < size_arr)
 		{
-			if (array[i] < array[j])
+			if (array[i] > array[j])
 			{
 				temp = array[i];
 				array[i] = array[j];

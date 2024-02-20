@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/19 21:09:09 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:58:09 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_print_list(t_list *stack_a)
 	}
 }
 
-long ft_find_in_array(int target, int *array, int border)
+int ft_find_in_array(int target, int *array, int border)
 {
 	int i;
 
@@ -49,30 +49,55 @@ int ft_position_in_array(int *array, t_list *stack_a, int border)
 	}
 	return (i);
 }
+int ft_position_in_chunk(int *array, int value, int border)
+{
+	int i;
+	int position;
+
+	i = border - 19;
+	position = 1;
+	while (i <= border)
+	{
+		if (array[i]==value)
+			return (position);
+		i++;
+		position++;
+	}
+	return (position);
+}
 void ft_sort_chunk(t_list **stack_a, t_list **stack_b, int *array)
 {
 	int border;
 	int highest;
 	int position;
+	// int old_bo;
 	
-	border = (ft_lstsize(*stack_a) / 10) - 1;
+	border = (ft_lstsize(*stack_a) / 12) - 1;
+	// old_bo = border;
 	while(ft_lstsize(*stack_a) > 0)
 	{
 		if(ft_find_in_array((*stack_a)->value, array, border) == 1)
 		{
-			ft_push(stack_a, stack_b, 'a');			
+			if (ft_position_in_chunk(array, (*stack_a)->value, border) < 21)
+			{
+				ft_push(stack_a, stack_b, 'a');	
+				ft_rotate(stack_b, 'b');
+			}
+			else
+				ft_push(stack_a, stack_b, 'a');
 			if (ft_lstsize(*stack_b) >= (border + 1))
-				border = border + ((ft_lstsize(*stack_a) + ft_lstsize(*stack_b)) / 9);
+				border = border + ((ft_lstsize(*stack_a) + ft_lstsize(*stack_b)) / 12);
 		}
 		else
 		{
 			if ((ft_position_in_array(array, *stack_a, border)) <= (ft_lstsize(*stack_a) / 2))
 				ft_rotate(stack_a, 'a');
-			else if ((ft_position_in_array(array, *stack_a, border)) > (ft_lstsize(*stack_a) / 2))
+			else
 				ft_rev_rotate(stack_a, 'a');	
 		}
 	}
 	highest = find_highest(*stack_b);
+	position = find_position(*stack_b, highest);
 	while(ft_lstsize(*stack_b) > 0)
 	{
 		if(highest == (*stack_b)->value)
@@ -88,7 +113,7 @@ void ft_sort_chunk(t_list **stack_a, t_list **stack_b, int *array)
 		{
 			if(position <= (ft_lstsize(*stack_b) / 2) && highest != (*stack_b)->value)
 				ft_rotate(stack_b, 'b');
-			else if (position > (ft_lstsize(*stack_b) / 2) && highest != (*stack_b)->value)
+			else
 				ft_rev_rotate(stack_b, 'b');
 		}	
 	}
@@ -97,7 +122,7 @@ void ft_sort_chunk(t_list **stack_a, t_list **stack_b, int *array)
 void ft_sort(t_list **stack_a, t_list **stack_b)
 {
 	int *array;
-	
+
 	array = ft_fill_aray(*stack_a);
 	ft_sort_array(array, ft_lstsize(*stack_a));
 	ft_sort_chunk(stack_a, stack_b, array);
@@ -116,8 +141,9 @@ void ft_call_sort(t_list **stack_a, t_list **stack_b)
 		ft_sort_3(stack_a);
 	else if (ft_lstsize(*stack_a) == 5 || ft_lstsize(*stack_a) == 4)
 		ft_sort_5(stack_a, stack_b);
-	else
+	else if (ft_lstsize(*stack_a) > 5 && ft_lstsize(*stack_a) <= 500)
 		ft_sort(stack_a, stack_b);
+	
 	// ft_print_list(*stack_a);
 }
 
