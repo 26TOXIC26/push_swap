@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:26:58 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/19 15:27:44 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:48:14 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_check_null(int argc, char **argv)
 	return (1);
 }
 
-int ft_check_spaces(char *argv)
+int	ft_check_spaces(char *argv)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (argv[i])
 	{
@@ -37,9 +37,10 @@ int ft_check_spaces(char *argv)
 	}
 	return (0);
 }
-int ft_check_full_space(int argc, char **argv)
+
+int	ft_check_full_space(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)

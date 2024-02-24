@@ -28,7 +28,8 @@ char	**ft_free_all(char **ptr)
 	return (NULL);
 }
 
-int	ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a, t_list **stack_b)
+int	ft_free_all_ta3_all(char *numbers, char **num_split, t_list **stack_a,
+		t_list **stack_b)
 {
 	free(numbers);
 	ft_free_all(num_split);

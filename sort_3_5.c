@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:26:30 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/20 15:07:44 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:49:02 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int	find_highest(t_list *stack)
 	}
 	return (highest);
 }
-int find_smallest(t_list *stack)
+
+int	find_smallest(t_list *stack)
 {
-	int smallest;
+	int	smallest;
 
 	smallest = stack->value;
-	while(stack)
+	while (stack)
 	{
 		if (smallest > stack->value)
 			smallest = stack->value;
@@ -39,12 +40,12 @@ int find_smallest(t_list *stack)
 	return (smallest);
 }
 
-int find_position(t_list *stack, int value)
+int	find_position(t_list *stack, int value)
 {
-	int position;
+	int	position;
 
 	position = 0;
-	while(value != stack->value)
+	while (value != stack->value)
 	{
 		position++;
 		stack = stack->next;
@@ -67,24 +68,24 @@ void	ft_sort_3(t_list **stack_a)
 
 void	ft_sort_5(t_list **stack_a, t_list **stack_b)
 {
-	int smallest;
-	int position;
+	int	smallest;
+	int	position;
 
 	smallest = find_smallest(*stack_a);
-	while(ft_lstsize(*stack_a) > 3)
+	while (ft_lstsize(*stack_a) > 3)
 	{
-		if(smallest == (*stack_a)->value)
+		if (smallest == (*stack_a)->value)
 		{
 			ft_push(stack_a, stack_b, 'a');
 			smallest = find_smallest(*stack_a);
 		}
 		position = find_position(*stack_a, smallest);
-		if(position > (ft_lstsize(*stack_a) / 2))
+		if (position > (ft_lstsize(*stack_a) / 2))
 			ft_rev_rotate(stack_a, 'a');
 		else
 			ft_rotate(stack_a, 'a');
 	}
 	ft_sort_3(stack_a);
-	while(ft_lstsize(*stack_b) > 0)
+	while (ft_lstsize(*stack_b) > 0)
 		ft_push(stack_b, stack_a, 'b');
 }

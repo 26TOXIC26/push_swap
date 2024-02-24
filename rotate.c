@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:41:36 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/18 16:44:43 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/24 21:26:32 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	ft_rotate(t_list **stack, char type)
 		write(1, "rb\n", 3);
 }
 
-void	ft_rotate_all(t_list **stack_a, t_list **stack_b)
+void	ft_rotate_all(t_list **stack_a, t_list **stack_b, char type)
 {
 	ft_rotate(stack_a, 'y');
 	ft_rotate(stack_b, 'z');
-	write(1, "rr\n", 3);
+	if (type == 'r')
+		write(1, "rr\n", 3);
 }
 
 void	ft_rev_rotate(t_list **stack, char type)
@@ -60,9 +61,10 @@ void	ft_rev_rotate(t_list **stack, char type)
 		write(1, "rrb\n", 4);
 }
 
-void	ft_rev_rotate_all(t_list **stack_a, t_list **stack_b)
+void	ft_rev_rotate_all(t_list **stack_a, t_list **stack_b, char type)
 {
 	ft_rev_rotate(stack_a, 'y');
 	ft_rev_rotate(stack_b, 'z');
-	write(1, "rrr\n", 4);
+	if (type == 'f')
+		write(1, "rrr\n", 4);
 }

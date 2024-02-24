@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 18:41:52 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/23 00:38:35 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/14 18:53:33 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/23 04:09:26 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+char	*ft_strnstr(const char *str, const char *to_finde, size_t len)
 {
-	if (!lst)
+	size_t	i;
+	size_t	check;
+	size_t	to_finde_len;
+
+	if (!str && !len)
 		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	i = 0;
+	if (!*to_finde)
+		return ((char *)str);
+	to_finde_len = ft_strlen(to_finde);
+	while (str[i] && to_finde_len <= len - i)
+	{
+		check = 0;
+		while (str[i + check] == to_finde[check] && to_finde[check])
+			check++;
+		if (to_finde_len == check)
+			return ((char *)str + i);
+		i++;
+	}
+	return (NULL);
 }

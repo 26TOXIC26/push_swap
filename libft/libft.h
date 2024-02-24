@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 14:25:47 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/20 15:12:33 by amousaid         ###   ########.fr       */
+/*   Created: 2024/02/24 21:52:45 by amousaid          #+#    #+#             */
+/*   Updated: 2024/02/24 21:52:47 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 typedef struct s_list
 {
 	int				value;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 long				ft_atoi(const char *str);
@@ -45,4 +46,6 @@ int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 char				*ft_itoa(int n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+char				*ft_strnstr(const char *str, const char *to_finde,
+						size_t len);
 #endif

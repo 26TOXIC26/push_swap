@@ -6,22 +6,22 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:21:40 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/20 14:00:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:46:05 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *ft_fill_aray(t_list *stack)
+int	*ft_fill_aray(t_list *stack)
 {
-	int *array;
-	int i;
+	int	*array;
+	int	i;
 
 	i = 0;
 	array = malloc(ft_lstsize(stack) * sizeof(int));
 	if (!array)
 		return (NULL);
-	while(stack)
+	while (stack)
 	{
 		array[i] = stack->value;
 		stack = stack->next;
@@ -29,10 +29,11 @@ int *ft_fill_aray(t_list *stack)
 	}
 	return (array);
 }
-int ft_check_array(int *array, int size_arr)
+
+int	ft_check_array(int *array, int size_arr)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = i + 1;
@@ -49,11 +50,12 @@ int ft_check_array(int *array, int size_arr)
 	}
 	return (1);
 }
-void ft_sort_array(int *array, int size_arr)
+
+void	ft_sort_array(int *array, int size_arr)
 {
-	int i;
-	int j;
-	int temp;
+	int	i;
+	int	j;
+	int	temp;
 
 	i = 0;
 	j = i + 1;
@@ -73,5 +75,4 @@ void ft_sort_array(int *array, int size_arr)
 		i = 0;
 		j = i + 1;
 	}
-	
 }

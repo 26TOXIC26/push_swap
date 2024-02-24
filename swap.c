@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 23:24:07 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/18 16:44:39 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/24 21:24:45 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ void	ft_swap(t_list **stack, char type_stack)
 		write(1, "sb\n", 3);
 }
 
-void	ft_swap_all(t_list **stack_a, t_list **stack_b)
+void	ft_swap_all(t_list **stack_a, t_list **stack_b, char type)
 {
 	ft_swap(stack_a, 'y');
 	ft_swap(stack_b, 'z');
-	write(1, "ss\n", 3);
+	if (type == 's')
+		write(1, "ss\n", 3);
 }
