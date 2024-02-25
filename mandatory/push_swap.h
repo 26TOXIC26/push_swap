@@ -6,15 +6,15 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 22:48:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/24 21:29:45 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/25 02:39:01 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+# include "../libft/libft.h"
 
 char	**ft_free_all(char **ptr);
 int		ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node,

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:24 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/24 19:22:17 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/25 02:14:17 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,4 @@ int	main(int argc, char **argv)
 	if (ft_split_to_node(num_split, 0, NULL, &stack_a) == 0)
 		ft_call_sort(&stack_a, &stack_b);
 	ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
-	
 }
