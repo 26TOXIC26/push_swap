@@ -6,11 +6,25 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:51:56 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/12 11:27:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:52:49 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_check_sort(t_list *stack_a)
+{
+	static int	*array;
+
+	array = ft_fill_aray(stack_a);
+	if (ft_check_array(array, ft_lstsize(stack_a)) == 1)
+	{
+		free(array);
+		return (0);
+	}
+	free(array);
+	return (1);
+}
 
 int	ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node,
 		t_list **stack_a)
@@ -35,5 +49,7 @@ int	ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node,
 		ft_lstadd_back(stack_a, tmp_node);
 		i++;
 	}
+	if (ft_check_sort(*stack_a) == 0)
+		return (-1);
 	return (0);
 }
