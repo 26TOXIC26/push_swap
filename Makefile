@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 00:12:14 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/25 19:50:00 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/26 16:57:55 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,10 @@ BONUS_SRC = ./bonus/checker.c\
 			./mandatory/check_spaces.c\
 			./mandatory/big_sort.c\
 
+OBJ= $(PUSH_SRC:.c=.o)
+BOBJ= $(BONUS_SRC:.c=.o)
+
+
 all: $(NAME)
 
 bonus: $(BONUS)
@@ -56,16 +60,17 @@ $(LIBFT):
 $(FT_PRINTF):
 		$(MAKE) --no-print-directory -C ./ft_printf
 		
-$(NAME): $(LIBFT) $(FT_PRINTF) $(PUSH_SRC) 
-	$(CC) $(CFLAGS) $(PUSH_SRC) $(LIBFT) $(FT_PRINTF) -o push_swap
+$(NAME): $(LIBFT) $(FT_PRINTF) $(OBJ) 
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) -o push_swap
 	@echo "✅IS MAKE✅"
 
-$(BONUS): $(LIBFT) $(FT_PRINTF) $(BONUS_SRC)
-	$(CC) $(CFLAGS) $(BONUS_SRC) $(LIBFT) $(FT_PRINTF) -o checker
+$(BONUS): $(LIBFT) $(FT_PRINTF) $(BOBJ)
+	$(CC) $(CFLAGS) $(BOBJ) $(LIBFT) $(FT_PRINTF) -o checker
 	@echo "✅BONUS✅"
 clean:
 	$(MAKE) clean --no-print-directory -C ./libft
 	$(MAKE) clean --no-print-directory -C ./ft_printf
+	$(RM) $(OBJ) $(BOBJ)
 	@echo "🧹IS CLEAN🧹"
 
 fclean: clean
@@ -77,4 +82,4 @@ fclean: clean
 
 re: fclean all
 
-.SILENT:
+# .SILENT:
