@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 00:12:14 by amousaid          #+#    #+#              #
-#    Updated: 2024/02/26 16:57:55 by amousaid         ###   ########.fr        #
+#    Updated: 2024/02/27 00:45:10 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,4 +82,5 @@ fclean: clean
 
 re: fclean all
 
-# .SILENT:
+.SILENT:
+.SECONDARY: $(OBJ) $(BOBJ) $(MAKE) clean --no-print-directory -C ./libft $(MAKE) clean --no-print-directory -C ./ft_printf
