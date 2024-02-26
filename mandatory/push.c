@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:19:00 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/18 16:44:47 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/26 03:01:16 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_push(t_list **stack_from, t_list **stack_to, char type_from)
 	t_list	*tmp1;
 	t_list	*tmp2;
 
-	if (*stack_from == NULL)
+	if (ft_lstsize(*stack_from) == 0)
 		return ;
 	tmp1 = *stack_from;
 	*stack_from = (*stack_from)->next;

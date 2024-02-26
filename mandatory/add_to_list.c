@@ -6,13 +6,13 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:51:56 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/25 19:52:49 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/26 02:14:36 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_sort(t_list *stack_a)
+int	ft_check_sort1(t_list *stack_a)
 {
 	static int	*array;
 
@@ -49,7 +49,7 @@ int	ft_split_to_node(char **num_split, long tmp_num, t_list *tmp_node,
 		ft_lstadd_back(stack_a, tmp_node);
 		i++;
 	}
-	if (ft_check_sort(*stack_a) == 0)
+	if (ft_check_sort1(*stack_a) == 0)
 		return (-1);
 	return (0);
 }

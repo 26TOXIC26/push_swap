@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:50:02 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/25 02:33:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/26 02:57:52 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	static t_list		*stack_a;
 	static t_list		*stack_b;
 
-	if (argc <= 2 || (ft_check_n(argc, argv) != 0))
+	if (argc < 2 || (ft_check_n(argc, argv) != 0))
 		return (0);
 	numbers = ft_join(argc, argv);
 	if (ft_check_arg(numbers) == 0)
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 			ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
 			return (ft_printf("Error\n"));
 		}
+		ft_ok_ko(stack_a, stack_b);
 	}
-	ft_ok_ko(stack_a, stack_b);
 	ft_free_all_ta3_all(numbers, num_split, &stack_a, &stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 02:17:25 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/25 02:21:24 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/26 02:55:56 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int	ft_call_appli(t_list **stack_a, t_list **stack_b)
 	while (move)
 	{
 		if (ft_applic_op(move, stack_a, stack_b) == 0)
+		{
+			free(move);
 			return (0);
+		}
 		free(move);
 		move = get_next_line(0);
 	}
