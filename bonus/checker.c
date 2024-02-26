@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:50:02 by amousaid          #+#    #+#             */
-/*   Updated: 2024/02/26 02:57:52 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:21:57 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		return (ft_printf("Error\n"));
 	}
 	num_split = ft_split(numbers, ' ');
-	if (ft_split_to_node(num_split, 0, NULL, &stack_a) == 0)
+	if (ft_split_to_node(num_split, 0, NULL, &stack_a) < 1)
 	{
 		if (ft_call_appli(&stack_a, &stack_b) == 0)
 		{
